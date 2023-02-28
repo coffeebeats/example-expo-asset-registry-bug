@@ -73,9 +73,6 @@ This issue reproduces in both `expo@48` *and* `expo@47`, provided you downgrade 
 
 > NOTE: You can skip these steps if you've clone this repository. These are included for documentation purposes.
 
-The following steps have already been taken care of in this example repository. However, this documents
-the steps taken to get there.
-
 1. Run the following command to generate the initial project,selecting `Blank (TypeScript)` as the template type:
 
     ```sh
@@ -154,9 +151,8 @@ code from [expo-font documentation](https://docs.expo.dev/versions/latest/sdk/fo
 
 3. Switch the `expo-asset` version down to `8.7.0` and re-run the test case, observing that it passes.
 
-    > NOTE: There seems to be issues if you don't start from a fresh install, so I recommend
-    > fully deleting `node_modules` to isolate the issue at hand.
+    > NOTE: There is an unrelated error that occurs if you don't ignore the `package-lock.json` file. I recommend using the `--no-package-lock` flag when re-installing in order to isolate the issue at hand.
 
     ```sh
-    rm -rf node_modules && rm package-lock.json && npm i && npm test
+    npm i --no-package-lock && npm test
     ```
